@@ -3,44 +3,50 @@
 ### Загрузите образ node версии 15.14
 ### Запустите контейнер с именем first_node из образа node версии 15.14 в фоновом режиме, подключив папку data из текущей директории в /var/first/data контейнера
 
-C:\JS\Node\Docker_Home>docker run --name first_node -it -d -v C:\JS\Node\Docker_Home\data:/var/first/data node:15.14
+*C:\JS\Node\Docker_Home>docker run --name first_node -it -d -v C:\JS\Node\Docker_Home\data:/var/first/data node:15.14*
+***
 3e8e31a3c9df36496edbfbaecb350c12021b52a315aa7519d9fcc3be4d7706c1
 
 ### Запустите контейнер с именем second_node из образа node версии 15.14 в фоновом режиме, подключив папку data из текущей директории в /var/second/data контейнера
-C:\JS\Node\Docker_Home>docker run --name second_node -it -d -v %cd%\data:/var/second/data node:15.14
-
+*C:\JS\Node\Docker_Home>docker run --name second_node -it -d -v %cd%\data:/var/second/data node:15.14*
+***
 961183fbf4b2dfc7ef1ce4625c36d0440c6fc8de3b80782b89515213f16fa531
 
 ### Подключитесь к контейнеру first_node с помощью exec и создайте текстовый файл любого содержания в /var/first/data
 
-C:\JS\Node\Docker_Home>docker exec first_node touch /var/first/data/test.txt  
+*C:\JS\Node\Docker_Home>docker exec first_node touch /var/first/data/test.txt*
 
 ### Добавьте еще один файл в папку data на хостовой машине
 
-C:\JS\Node\Docker_Home>echo "hello" > %cd%/data/file.txt
+*C:\JS\Node\Docker_Home>echo "hello" > %cd%/data/file.txt*
 
 ### Подключитесь к контейнеру second_node с помощью exec и получите список файлов в директории /var/second/data, выведете на экран содержимое файлов
 
-C:\JS\Node\Docker_Home>docker exec second_node ls /var/second/data
+*C:\JS\Node\Docker_Home>docker exec second_node ls /var/second/data*
+***
 file.txt
 test.txt
 
-C:\JS\Node\Docker_Home>docker exec second_node cat /var/second/data/file.txt
+*C:\JS\Node\Docker_Home>docker exec second_node cat /var/second/data/file.txt*
+***
 "hello" 
 
-C:\JS\Node\Docker_Home>docker exec second_node cat /var/second/data/test.txt
+*C:\JS\Node\Docker_Home>docker exec second_node cat /var/second/data/test.txt*
 
 ### Остановите оба контейнера
-C:\JS\Node\Docker_Home>docker stop first_node second_node
+*C:\JS\Node\Docker_Home>docker stop first_node second_node*
+***
 first_node
 second_node
 
-C:\JS\Node\Docker_Home>docker ps
+*C:\JS\Node\Docker_Home>docker ps*
+***
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 #### Удалите оба контейнера
 
-C:\JS\Node\Docker_Home>docker ps -a
+*C:\JS\Node\Docker_Home>docker ps -a*
+***
 CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS    
                         PORTS     NAMES
 961183fbf4b2   node:15.14                        "docker-entrypoint.s…"   4 hours ago     Exited (137) About a minute ago             second_node
@@ -52,11 +58,13 @@ e9ac61253403   postgres                          "docker-entrypoint.s…"   4 mo
 6df2d952c621   mongo:3.1                         "/entrypoint.sh mong…"   12 months ago   Exited (139) 12 months ago                  skillbox-mongodb
 67158e82c0a2   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   12 months ago   Exited (0) 4 months ago                     welcome-to-docker
 
-C:\JS\Node\Docker_Home>docker rm first_node second_node
+*C:\JS\Node\Docker_Home>docker rm first_node second_node*
+***
 first_node
 second_node
 
-C:\JS\Node\Docker_Home>docker ps -a
+*C:\JS\Node\Docker_Home>docker ps -a*
+***
 CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS    
                    PORTS     NAMES
 68216ffcb69b   mysql:latest                      "docker-entrypoint.s…"   4 weeks ago     Exited (0) 4 weeks ago                 users-db
@@ -68,7 +76,8 @@ e9ac61253403   postgres                          "docker-entrypoint.s…"   4 mo
 
 ### Удалите образ node версии 15.14
 
-C:\JS\Node\Docker_Home>docker images
+*C:\JS\Node\Docker_Home>docker images*
+***
 REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
 postgres                   latest    80cbdc6c3301   4 months ago    435MB
 mysql                      latest    10db11fef9ce   5 months ago    602MB
@@ -77,7 +86,8 @@ redis                      6.2.5     5d89766432d0   3 years ago     105MB
 node                       15.14     3d3f41722daf   3 years ago     936MB
 mongo                      3.1       199e537da3a8   8 years ago     303MB
 
-C:\JS\Node\Docker_Home>docker rmi node:15.14
+*C:\JS\Node\Docker_Home>docker rmi node:15.14*
+***
 Untagged: node:15.14
 Untagged: node@sha256:608bba799613b1ebf754034ae008849ba51e88b23271412427b76d60ae0d0627
 Deleted: sha256:3d3f41722daf1a77c34d6eade6676bbffa2d6a2a21095de2ab0c427a5c942fc9
@@ -92,12 +102,11 @@ Deleted: sha256:1dbe832a694971a925d7d216f49b700c95f402bd72288f9d37eceb1d59dcf72d
 Deleted: sha256:2f4ee6a2e1b5dfb9236cd262e788f9d39109242ca27a4aacb583c8af66ec3ff7
 
 
-C:\JS\Node\Docker_Home>docker images         
+*C:\JS\Node\Docker_Home>docker images*
+***         
 REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
 postgres                   latest    80cbdc6c3301   4 months ago    435MB
 mysql                      latest    10db11fef9ce   5 months ago    602MB
 docker/welcome-to-docker   latest    c1f619b6477e   16 months ago   18.6MB
 redis                      6.2.5     5d89766432d0   3 years ago     105MB
 mongo                      3.1       199e537da3a8   8 years ago     303MB
-
-C:\JS\Node\Docker_Home>

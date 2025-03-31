@@ -58,7 +58,7 @@ round-trip min/avg/max = 79.351/82.551/89.869 ms
 pinger
 
 ### Выведите на список всех контейнеров - запущенных и остановленных
-*C:\JS\Node\Docker_Home>docker ps -a *
+*C:\JS\Node\Docker_Home>docker ps -a*
 ***      
 CONTAINER ID   IMAGE                             COMMAND                  CREATED          STATUS   
                     PORTS     NAMES
