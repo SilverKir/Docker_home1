@@ -2,7 +2,8 @@
 ### Загрузите образ busybox последней версии
 ### Запустите новый контейнер busybox с командой ping сайта netology.ru, и количеством пингов 7, поименуйте контейнер pinger
 
-C:\JS\Node\Docker_Home>docker run --name pinger -it busybox ping -c 7 netology.ru
+*C:\JS\Node\Docker_Home>docker run --name pinger -it busybox ping -c 7 netology.ru*
+***
 Unable to find image 'busybox:latest' locally
 latest: Pulling from library/busybox
 97e70d161e81: Pull complete
